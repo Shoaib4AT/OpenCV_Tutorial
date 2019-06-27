@@ -15,10 +15,17 @@ gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 blurred_image = cv2.GaussianBlur(image, (7,7), 0)
 
 #%%
-# Show all 3 images
 cv2.imshow("Original Image", image)
-cv2.imshow("Gray Image", gray_image)
-cv2.imshow("Blurred Image", blurred_image)
- 
+
+
+#%%
+canny = cv2.Canny(blurred_image, 10, 30)
+cv2.imshow("Canny with low thresholds", canny)
+
+#%%
+canny2 = cv2.Canny(blurred_image, 50, 150)
+cv2.imshow("Canny with high thresholds", canny2)
+
 cv2.waitKey(0)
 
+#%%
